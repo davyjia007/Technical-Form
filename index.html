@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术支持填单</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f0f2f5; /* 浅灰背景 */
+    color: #333;
+  }
+  h1 {
+    text-align: center;
+    color: #ff8c00; /* 时尚橙色标题 */
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .category {
+    padding: 16px 18px;
+    background: #ffffff;
+    color: #ff8c00; /* 橙色大类标题 */
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    margin-top: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  }
+  .items {
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+  }
+  .item {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    color: #333; /* 深灰文字，更易阅读 */
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+  .item:last-child { border-bottom: none; }
+  .item:hover {
+    background: #ff8c00; /* 橙色悬浮 */
+    color: #ffffff;      /* 悬浮白字 */
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<h1>技术支持填单</h1>
+<div class="container" id="container"></div>
+
+<script>
+const data = [
+  {
+    category: "技术支持",
+    items: [
+      { name: "项目出差", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_027f19" },
+      { name: "厂内支持", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_856c0a" },
+      { name: "适刻项目", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_c53da0" }
+    ]
+  },
+  {
+    category: "维修表单",
+    items: [
+      { name: "常规维修", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_ebffa4" },
+      { name: "日办维修", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_2ebeef" },
+      { name: "坐标统计", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_1d4c61" }
+    ]
+  },
+  {
+    category: "反馈建议",
+    items: [
+      { name: "产品投诉", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_adcca9" },
+      { name: "产品建议", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_c2f57d" },
+      { name: "技术分享", url: "https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_da73e2" }
+    ]
+  }
+];
+
+const container = document.getElementById('container');
+
+data.forEach(cat => {
+  const catDiv = document.createElement('div');
+  catDiv.className = 'category';
+  catDiv.textContent = cat.category;
+
+  const itemsDiv = document.createElement('div');
+  itemsDiv.className = 'items';
+
+  cat.items.forEach(item => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'item';
+    itemDiv.textContent = item.name;
+    itemDiv.onclick = () => window.open(item.url, "_blank");
+    itemsDiv.appendChild(itemDiv);
+  });
+
+  container.appendChild(catDiv);
+  container.appendChild(itemsDiv);
+});
+</script>
+
+</body>
+</html>
