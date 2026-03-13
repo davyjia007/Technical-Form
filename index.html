@@ -9,12 +9,12 @@
     font-family: "Segoe UI", Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background: #f0f2f5; /* 浅灰背景 */
+    background: #f0f2f5;
     color: #333;
   }
   h1 {
     text-align: center;
-    color: #ff8c00; /* 时尚橙色标题 */
+    color: #ff8c00;
     margin-bottom: 30px;
     font-weight: 600;
   }
@@ -22,36 +22,46 @@
     max-width: 480px;
     margin: 0 auto;
   }
+
+  /* 大类样式，不同浅色背景 */
   .category {
     padding: 16px 18px;
-    background: #ffffff;
-    color: #ff8c00; /* 橙色大类标题 */
     font-size: 18px;
     font-weight: 600;
     border-radius: 8px 8px 0 0;
     margin-top: 20px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    color: #333;
   }
+  .category-0 { background: #FFEDE0; } /* 橙色系浅色 */
+  .category-1 { background: #E0F2FF; } /* 蓝色系浅色 */
+  .category-2 { background: #E0FFE0; } /* 绿色系浅色 */
+
+  /* 子项容器 */
   .items {
-    background: #ffffff;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
     margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
+
+  /* 子项样式 */
   .item {
     padding: 14px 16px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
-    color: #333; /* 深灰文字，更易阅读 */
     font-weight: 500;
-    transition: all 0.2s ease;
     text-align: center;
+    background: #fff; /* 白底保持干净 */
+    color: #333;
+    transition: all 0.2s ease;
   }
   .item:last-child { border-bottom: none; }
+
+  /* 悬浮效果：轻微背景高亮 + 白字 */
   .item:hover {
-    background: #ff8c00; /* 橙色悬浮 */
-    color: #ffffff;      /* 悬浮白字 */
-    border-radius: 4px;
+    background: #ff8c00; 
+    color: #fff;
   }
 </style>
 </head>
@@ -90,9 +100,9 @@ const data = [
 
 const container = document.getElementById('container');
 
-data.forEach(cat => {
+data.forEach((cat, index) => {
   const catDiv = document.createElement('div');
-  catDiv.className = 'category';
+  catDiv.className = 'category category-' + index;
   catDiv.textContent = cat.category;
 
   const itemsDiv = document.createElement('div');
