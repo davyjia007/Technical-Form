@@ -6,97 +6,217 @@
 <title>技术支持填单</title>
 
 <style>
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #f0f2f5;
-  color: #333;
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-/* 顶部区域 */
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+min-height:100vh;
+padding:30px 20px;
+
+/* 动态渐变背景 */
+
+background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
+background-size:200% 200%;
+animation:bgMove 12s ease infinite;
+
+color:#333;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* 头部卡片 */
+
 .header{
-  position: relative;
-  max-width: 480px;
-  margin: 0 auto 30px auto;
+
+max-width:520px;
+margin:auto;
+margin-bottom:25px;
+
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(12px);
+
+border-radius:14px;
+
+padding:30px 20px;
+
+position:relative;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+
 }
 
 /* 标题 */
+
 h1{
-  text-align: center;
-  color: #ff8c00;
-  margin: 0;
-  font-weight: 600;
+
+text-align:center;
+font-size:26px;
+font-weight:700;
+
+background:linear-gradient(90deg,#ff7eb3,#667eea);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
 }
 
-/* logo */
+/* LOGO */
+
 .logo{
-  position: absolute;
-  right: 2px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 80px;
+
+position:absolute;
+
+right:20px;
+top:50%;
+
+transform:translateY(-50%);
+
+height:65px;
+
+/* 让白底不明显 */
+
+mix-blend-mode:multiply;
+
 }
 
 /* 主容器 */
+
 .container{
-  max-width: 480px;
-  margin: 0 auto;
+max-width:520px;
+margin:auto;
 }
 
-/* 大类 */
+/* 分类卡 */
+
 .category{
-  padding: 16px 18px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 8px 8px 0 0;
-  margin-top: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  color: #333;
+
+padding:16px 18px;
+font-size:18px;
+font-weight:600;
+
+color:white;
+
+border-radius:12px 12px 0 0;
+
+margin-top:20px;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
-.category-0{ background:#FFEDE0; }
-.category-1{ background:#E0F2FF; }
-.category-2{ background:#E0FFE0; }
+/* 三种渐变 */
 
-/* 子项容器 */
+.category-0{
+background:linear-gradient(135deg,#ff6b6b,#ff8787);
+}
+
+.category-1{
+background:linear-gradient(135deg,#4ecdc4,#44a08d);
+}
+
+.category-2{
+background:linear-gradient(135deg,#a8edea,#fed6e3);
+color:#444;
+}
+
+/* 子项区域 */
+
 .items{
-  border-radius: 0 0 8px 8px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+background:white;
+
+border-radius:0 0 12px 12px;
+
+overflow:hidden;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* 子项 */
+/* 按钮 */
+
 .item{
-  padding: 14px 16px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-  font-weight: 500;
-  text-align: center;
-  background: #fff;
-  color: #333;
-  transition: all 0.2s ease;
+
+padding:15px;
+
+text-align:center;
+
+border-bottom:1px solid #eee;
+
+cursor:pointer;
+
+font-weight:500;
+
+position:relative;
+
+overflow:hidden;
+
+transition:all .25s ease;
+
+}
+
+/* 光线动画 */
+
+.item::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.7),
+transparent
+);
+
+transition:0.6s;
+}
+
+/* hover效果 */
+
+.item:hover{
+
+background:linear-gradient(135deg,#667eea,#764ba2);
+
+color:white;
+
+transform:translateX(6px);
+
+box-shadow:0 5px 12px rgba(0,0,0,0.25);
+
+}
+
+.item:hover::before{
+left:100%;
 }
 
 .item:last-child{
-  border-bottom: none;
+border-bottom:none;
 }
 
-.item:hover{
-  background:#ff8c00;
-  color:#fff;
-}
 </style>
 </head>
 
 <body>
 
 <div class="header">
+
 <h1>技术支持填单</h1>
 
-<!-- logo -->
-<img src="ROE%20LOGO_RGB%20(white%20bkgd).jpg" class="logo">
+<img src="ROE%20LOGO_RGB%20(white%20bkgd).jpg" class="logo" alt="ROE Logo">
 
 </div>
 
@@ -104,57 +224,55 @@ h1{
 
 <script>
 
-const data = [
+const data=[
 
 {
 category:"技术支持",
 items:[
-{ name:"项目出差", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_027f19"},
-{ name:"厂内支持", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_856c0a"},
-{ name:"适刻项目", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_c53da0"}
+{name:"项目出差",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_027f19"},
+{name:"厂内支持",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_856c0a"},
+{name:"适刻项目",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_c53da0"}
 ]
 },
 
 {
 category:"维修表单",
 items:[
-{ name:"常规维修", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_ebffa4"},
-{ name:"日办维修", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_2ebeef"},
-{ name:"坐标统计", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_1d4c61"}
+{name:"常规维修",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_ebffa4"},
+{name:"日办维修",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_2ebeef"},
+{name:"坐标统计",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_1d4c61"}
 ]
 },
 
 {
 category:"反馈建议",
 items:[
-{ name:"产品投诉", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_adcca9"},
-{ name:"产品建议", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_c2f57d"},
-{ name:"技术分享", url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_da73e2"}
+{name:"产品投诉",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_adcca9"},
+{name:"产品建议",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_c2f57d"},
+{name:"技术分享",url:"https://doc.weixin.qq.com/smartsheet/form/1_wpqQoHBgAAwWgvhlAEc-HwEE4j_NPIMA_da73e2"}
 ]
 }
 
 ];
 
-const container = document.getElementById('container');
+const container=document.getElementById("container");
 
 data.forEach((cat,index)=>{
 
-const catDiv=document.createElement('div');
-catDiv.className='category category-'+index;
+const catDiv=document.createElement("div");
+catDiv.className="category category-"+index;
 catDiv.textContent=cat.category;
 
-const itemsDiv=document.createElement('div');
-itemsDiv.className='items';
+const itemsDiv=document.createElement("div");
+itemsDiv.className="items";
 
 cat.items.forEach(item=>{
 
-const itemDiv=document.createElement('div');
-itemDiv.className='item';
+const itemDiv=document.createElement("div");
+itemDiv.className="item";
 itemDiv.textContent=item.name;
 
-itemDiv.onclick=()=>{
-window.open(item.url,"_blank");
-};
+itemDiv.onclick=()=>window.open(item.url,"_blank");
 
 itemsDiv.appendChild(itemDiv);
 
