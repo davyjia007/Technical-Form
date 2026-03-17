@@ -67,8 +67,6 @@ right:20px;
 top:50%;
 transform:translateY(-50%);
 height:65px;
-
-/* 让白底不明显 */
 mix-blend-mode:multiply;
 }
 
@@ -126,7 +124,6 @@ overflow:hidden;
 transition:all .25s ease;
 }
 
-/* 光线动画 */
 .item::before{
 content:"";
 position:absolute;
@@ -145,11 +142,9 @@ transparent
 transition:0.6s;
 }
 
-/* hover效果 */
 .item:hover{
 background:linear-gradient(135deg,#667eea,#764ba2);
 color:white;
-
 transform:translateX(6px);
 box-shadow:0 5px 12px rgba(0,0,0,0.25);
 }
@@ -162,34 +157,46 @@ left:100%;
 border-bottom:none;
 }
 
-/* ===== 填单指引按钮 ===== */
+/* ===== 底部按钮（升级版） ===== */
 .guide{
-text-align:center;
-margin-top:35px;
+display:flex;
+justify-content:center;
+gap:18px;
+margin-top:40px;
+flex-wrap:wrap;
 }
 
 .guide a{
-display:inline-block;
-padding:12px 22px;
-border-radius:10px;
+flex:1;
+max-width:220px;
+text-align:center;
 
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(10px);
+padding:14px 18px;
+border-radius:12px;
 
-color:#555;
-font-weight:500;
+font-weight:600;
 text-decoration:none;
 
-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+color:white;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.2);
 transition:all .25s ease;
 }
 
-.guide a:hover{
-background:linear-gradient(135deg,#ff7eb3,#667eea);
-color:white;
+/* 工单（蓝色） */
+.guide a:first-child{
+background:linear-gradient(135deg,#667eea,#5a67d8);
+}
 
-transform:translateY(-3px);
-box-shadow:0 8px 20px rgba(0,0,0,0.25);
+/* 维修（橙色） */
+.guide a:last-child{
+background:linear-gradient(135deg,#ff9a44,#ff6a00);
+}
+
+/* hover 动效 */
+.guide a:hover{
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 </style>
@@ -204,9 +211,10 @@ box-shadow:0 8px 20px rgba(0,0,0,0.25);
 
 <div class="container" id="container"></div>
 
-<!-- ✅ 底部填单指引 -->
+<!-- ✅ 底部指引按钮 -->
 <div class="guide">
-  <a href="ASAP工单录入说明.pdf" target="_blank">📘 填单指引（点击查看）</a>
+  <a href="ASAP工单录入说明.pdf" target="_blank">📘 工单录入指引</a>
+  <a href="ASAP维修记录录入说明.pdf" target="_blank">🔧 维修录入指引</a>
 </div>
 
 <script>
