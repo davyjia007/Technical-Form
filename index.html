@@ -19,7 +19,6 @@ min-height:100vh;
 padding:30px 20px;
 
 /* 动态渐变背景 */
-
 background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);
 background-size:200% 200%;
 animation:bgMove 12s ease infinite;
@@ -34,9 +33,7 @@ color:#333;
 }
 
 /* 头部卡片 */
-
 .header{
-
 max-width:520px;
 margin:auto;
 margin-bottom:25px;
@@ -45,19 +42,15 @@ background:rgba(255,255,255,0.75);
 backdrop-filter:blur(12px);
 
 border-radius:14px;
-
 padding:30px 20px;
 
 position:relative;
 
 box-shadow:0 8px 25px rgba(0,0,0,0.15);
-
 }
 
 /* 标题 */
-
 h1{
-
 text-align:center;
 font-size:26px;
 font-weight:700;
@@ -65,54 +58,40 @@ font-weight:700;
 background:linear-gradient(90deg,#ff7eb3,#667eea);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
 }
 
 /* LOGO */
-
 .logo{
-
 position:absolute;
-
 right:20px;
 top:50%;
-
 transform:translateY(-50%);
-
 height:65px;
 
 /* 让白底不明显 */
-
 mix-blend-mode:multiply;
-
 }
 
 /* 主容器 */
-
 .container{
 max-width:520px;
 margin:auto;
 }
 
 /* 分类卡 */
-
 .category{
-
 padding:16px 18px;
 font-size:18px;
 font-weight:600;
-
 color:white;
 
 border-radius:12px 12px 0 0;
-
 margin-top:20px;
 
 box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
 /* 三种渐变 */
-
 .category-0{
 background:linear-gradient(135deg,#ff6b6b,#ff8787);
 }
@@ -127,51 +106,32 @@ color:#444;
 }
 
 /* 子项区域 */
-
 .items{
-
 background:white;
-
 border-radius:0 0 12px 12px;
-
 overflow:hidden;
-
 box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
 
 /* 按钮 */
-
 .item{
-
 padding:15px;
-
 text-align:center;
-
 border-bottom:1px solid #eee;
-
 cursor:pointer;
-
 font-weight:500;
 
 position:relative;
-
 overflow:hidden;
-
 transition:all .25s ease;
-
 }
 
 /* 光线动画 */
-
 .item::before{
-
 content:"";
-
 position:absolute;
-
 top:0;
 left:-100%;
-
 width:100%;
 height:100%;
 
@@ -186,17 +146,12 @@ transition:0.6s;
 }
 
 /* hover效果 */
-
 .item:hover{
-
 background:linear-gradient(135deg,#667eea,#764ba2);
-
 color:white;
 
 transform:translateX(6px);
-
 box-shadow:0 5px 12px rgba(0,0,0,0.25);
-
 }
 
 .item:hover::before{
@@ -207,20 +162,52 @@ left:100%;
 border-bottom:none;
 }
 
+/* ===== 填单指引按钮 ===== */
+.guide{
+text-align:center;
+margin-top:35px;
+}
+
+.guide a{
+display:inline-block;
+padding:12px 22px;
+border-radius:10px;
+
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+
+color:#555;
+font-weight:500;
+text-decoration:none;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+transition:all .25s ease;
+}
+
+.guide a:hover{
+background:linear-gradient(135deg,#ff7eb3,#667eea);
+color:white;
+
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="header">
-
 <h1>技术支持填单</h1>
-
 <img src="ROE%20LOGO_RGB%20(white%20bkgd).jpg" class="logo" alt="ROE Logo">
-
 </div>
 
 <div class="container" id="container"></div>
+
+<!-- ✅ 底部填单指引 -->
+<div class="guide">
+  <a href="ASAP工单录入说明.pdf" target="_blank">📘 填单指引（点击查看）</a>
+</div>
 
 <script>
 
